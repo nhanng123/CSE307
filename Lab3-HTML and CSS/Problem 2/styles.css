@@ -1,0 +1,39 @@
+.row{
+	align-items: baseline;
+}
+nav{
+	background: #294A70;
+	width: 100%;
+	border-bottom:3px solid #F4A024 ;
+}
+.nav{
+	margin-top: 20px;
+	
+}
+.nav ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.nav li{
+	display: inline-block;
+}
+.nav li a{
+	display: inline-block;
+	color: white;
+	height: 30px;
+	line-height: 30px;
+	padding-right: 15px;
+	padding-left: 15px;
+	text-decoration: none;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+.nav .active,.nav li:hover a{
+	background: #F4A024;
+}
+.table-score{
+	margin-left: 200px;
+	margin-top: 20px;
+	text-align: center;
+}
