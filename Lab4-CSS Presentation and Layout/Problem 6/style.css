@@ -1,0 +1,28 @@
+a:link{
+	text-decoration: none;
+}
+a:hover .container{
+	box-shadow: 0 0 5px 5px #ddd;
+}
+.container{
+	width: 200px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 3px #ddd;
+}
+.container img{
+	max-width: 100%;
+	width: 100%;
+}
+.container #info{
+	padding: 10px;
+}
+a #name{
+	color: black;
+	font-weight: bold;
+	font-size: 15px;
+}
+a #job{
+	color: black;
+	font-size: 14px;
+}
