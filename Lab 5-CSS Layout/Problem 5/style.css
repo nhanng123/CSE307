@@ -1,0 +1,68 @@
+main{
+	font-family: sans-serif;
+}
+.heading-title{
+	display: inline-block;
+	color: #61605C;
+	margin-bottom: 0;
+	border-bottom: 5px solid #FC8D00;
+}
+.product-title hr{
+	margin-top: 1px;
+}
+.product{
+	display: inline-block;
+	align-items: center;
+	text-align: center;
+}
+.product-frame{
+	border: 2px solid #F1EDEA;
+	position: relative;
+	cursor: pointer;
+	
+}
+.product-image img{
+	width: 100%;
+	max-width: 100%;
+}
+.booking-hover{
+	display: none;
+	border: 2px solid #F1EDEA;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	right: 2px;
+	bottom: 2px;
+
+}
+.booking-hover a{
+	display: block;
+	background-color: #FC8D00;
+	padding: 7px 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+}
+.booking-hover a:first-child{
+	margin-top: calc(50% - 50px);
+}
+.booking-hover a:last-child{
+	margin-bottom: calc(50% - 50px);
+}
+.product:hover .booking-hover{
+	display: block;
+}
+.description .detail{
+	color: #718086;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.description .contact{
+	color: #DA682E;
+	font-weight: bold;
+}
