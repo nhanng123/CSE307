@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lani & Dani Company</title>
+	<link rel = "icon" href = "images\fav.png" type = "image/x-icon">
+
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Font awesome -->
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<!-- Boostrap -->
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<!-- Google Font -->
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<!-- 
+		--- Instruction --- 
+		Look at the attached image, write HTML code to the corresponding block.
+		Note:
+		+ Only use the tags you have learned, if you cannot find the proper tags, you can skip it.
+		+ Remember to put an "a" tag (href="#") at the place you think it is a hyperlink. 
+		+ Your design will be different from the image, don't worry!
+	-->
+	<header>
+		<!-- Block 1 -->
+		<div class="section_1"  >
+			<div class="mobile-container">
+				<div class="topnav">
+					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+						<i class="fa fa-bars"></i>
+					</a>
+					 <p ><a href="home.html" class="active mobile-logo">
+						<img id="logo" src="images/logo.png" alt="Lani&Dani Logo" loading="lazy">
+					</a></p>
+					<div id="myLinks">
+						<a href="homepage.html">Trang chủ</a>
+						<a href="gollf-service.html">Dịch vụ Golf</a>
+						<a href="other-service.html">Dịch vụ khác</a>
+						<a href="news.html">Tin tức</a>
+						<a href="project.html">Công trình</a>
+						<a href="introduction.html">Giới thiệu</a>
+						<a href="contact.html">Liên hệ</a>
+						<a href="">tiếng việt</a>
+					</div>
+				</div>
+			</div>
+			<div class="header-content">
+				<div class="slider">
+					<div id="carouselExampleControls" class="col-12 carousel slide" data-ride="carousel">
+					   <div class="carousel-inner">
+					    	<div class="carousel-item active">
+					       		<img src="images/slider-1.jpg" class="d-block w-100" alt="Slider 1">
+					     	</div>
+					    	<div class="carousel-item">
+					     		<img src="images/slider-2.jpg" class="d-block w-100" alt="Slider 2">
+					    	</div>
+					    	<div class="carousel-item">
+					    		<img src="images/slider-3.jpg" class="d-block w-100" alt="Slider 3">
+					    	</div>
+					  		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+					    		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					    		<span class="sr-only">Previous</span>
+					  		</a>
+					  		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+						  	</a>
+						</div>
+					</div>
+				</div>
+				<nav>
+					<div class="container-nav">
+						<div class="nav-logo">
+							<a href="home.html"><img src="images/logo.png" class="logo" alt="Lani And Dani" Loading="Lazy"></a>
+						</div>
+						<div class="nav-menu">
+							<ul class="menu">
+								<li class="menu-item current"><a href="home.html">TRANG CHỦ</a></li>
+								<li class="menu-item"><a href="home.html">DỊCH VỤ GOLF</a></li>
+								<li class="menu-item"><a href="home.html">DỊCH VỤ KHÁC</a></li>
+								<li class="menu-item"><a href="home.html">TIN TỨC</a>
+									<ul class="sub-menu">
+										<li class="sub-menu-item"><a href="#">Kỹ Thuật Golf</a></li>
+										<li class="sub-menu-item"><a href="#">Giải Đấu Golf</a></li>
+										<li class="sub-menu-item"><a href="#">Tư Vấn Golf</a></li>
+									</ul>
+								</li>
+								<li class="menu-item"><a href="home.html">CÔNG TRÌNH</a>
+									<ul class="sub-menu">
+										<li class="sub-menu-item"><a href="#">Nhà Máy</a></li>
+										<li class="sub-menu-item"><a href="#">Cao Ốc</a></li>
+									</ul>
+								</li>
+								<li class="menu-item"><a href="home.html">GIỚI THIỆU</a></li>
+								<li class="menu-item"><a href="home.html">LIÊN HỆ</a></li>
+								<li class="menu-item"><a href="home.html">TIẾNG VIỆT </a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<main>
+		<!-- Block 2 -->
+		<div class="section_2">		
+			<div class="container" >
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<h2 id="who-are-us">Chúng tôi là ai?</h2>
+						<h1 id="company-name">Công ty LANI & DANI </h1>
+						<p class="section_2_content"><b>Tự hào là công ty đầu tiên tại Việt Nam cung cấp dịch vụ trọn gói</b> trong 	lĩnh vực tư vấn, thiết kế, xây dựng sân Golf, cung ứng nguồn lực, dịch vụ huấn 	luyện, quản lí và hậu cần cho dịch vụ Golf.</p>
+						<p class="section_2_content">Chúng tôi còn hoạt động trong lĩnh vực xây lắp và đầu tư xây dựng các công 	trình dân dụng, nhà xưởng công nghiệp, công trình hạ tầng kỹ thuật, đường giao thông, cầu cảng, bờ kè, cầu cống, nạo vét sông rạch, xây dựng các công trình thủy lợi, thi công san lấp mặt bằng, sản xuất và kinh doanh vật liệu xây dựng.</p>
+					</div>
+					<div class="col-12 col-md-3">
+						<img src="images/introduction-gilf.jpg" alt="Girl with Golf" loading="Lazy">
+					</div>
+					<div class="col-12 col-md-3">
+						<img class="move-top" src="images/introduction-man.jpg" alt="Man with Golf" loading="Lazy">
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<!-- Block 3 -->
+		<div class="section_3">
+			<!-- Your HTML code -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12 intro-service" >
+						<h2 class="service-slogan">Chuyên gia hàng đầu</h2>
+						<h1 id="service-title">Dịch Vụ Sân Golf</h1>
+						<hr>
+						<p>Với đội ngũ thiết kế và xây dựng chuyên nghiệp, <b>Lani & Dani </b>đảm bảo sẽ mang lại những sân golf chất lượng cao, đầy thú vị và thử thách phù hợp cho các golf thủ ở tất cả các mức kỹ năng.</p>
+					</div>
+				</div>
+				<div class="row row1">
+					<div class="col-12 col-md-4">
+						<div class="service-item">
+							<img src="images/service-design.jpg" alt="Design" loading="Lazy">
+							<h2>Thiết Kế</h2>
+							<p>Đội ngữ thiết kế sân golf hơn 10 năm kinh nghiệm, thi công đạt tiêu chuẩn quốc tế.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-4">
+						<div class="service-item">
+							<img src="images/service-construction.jpg" alt="Construction" loading="Lazy">
+							<h2>Xây Dựng</h2>
+							<p>Là đơn vị đứng đầu về Thiết kế Thi công sân Golf chuyên nghiệp trên Toàn quốc.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-4 ">
+						<div class="service-item">
+							<img src="images/service-operation.jpg" alt="Operation" loading="Lazy">
+							<h2>Vận Hành</h2>
+							<p>Quản lý, điều hành, vận hành các hành động kinh doanh hàng ngày của sân golf.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row row2">
+					<div class="col-12 col-md-4">
+						<div class="service-item">
+							<img src="images/service-maintenance.jpg" alt="Maintenance" loading="Lazy">
+							<h2>Chăm Sóc Bảo Dưỡng</h2>
+							<p>Giúp quá trình sử dụng sân golf luôn đạt tiêu chuẩn kĩ thuật cao nhất.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-4">
+						<div class="service-item">
+							<img src="images/service-training.jpg" alt="Training" loading="Lazy">
+							<h2>Huấn Luyện</h2>
+							<p>Cung cấp bài học golf từ các chuyên gia quốc tế có trình độ cao, giàu kinh nghiệm.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-4 ">
+						<div class="service-item">
+							<img src="images/service-lawn-care.jpg" alt="Lawn care" loading="Lazy">
+							<h2>Chăm Sóc Cỏ</h2>
+							<p>Tiến hành xử lý cỏ dại kế hợp áp dụng các kỹ thuật chăm sóc cỏ sân golf khoa học</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Block 4 -->
+		<div class="section_4">
+			<!-- Your HTML code -->
+			<div class="container">
+				<div class="row ">
+					<div class="col-12 intro-service">
+						<h2 class="service-slogan">Uy tín và Chuyên nghiệp<h2>
+						<h1 id="service-title">Các Dịch Vụ Khác</h1>
+						<hr>
+						<p>Với định hướng phát triển đa ngành nghề, ngoài lĩnh vực sân Golf, Công ty TNHH LANI&DANI còn tập trung các hoạt động kinh doanh trong các lĩnh vực dưới đây</p>
+					</div>
+				</div>
+				<div class="row section_4-row1">
+					<div class="col-12 col-md-3">
+						<div class="other-service-item">
+							<img src="images/house.png" alt="House" loading="Lazy">
+							<p>Xây dựng nhà ở</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3">
+						<div class="other-service-item">
+							<img src="images/scaffolding.png" alt="Scaffolding" loading="Lazy">
+							<p >Xây dựng các công trình kỹ thuật dàn dựng</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3">
+						<div class="other-service-item">
+							<img src="images/drill.png" alt="Drill" loading="Lazy">
+							<p >Phá dỡ</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3">
+						<div class="other-service-item">
+							<img src="images/blueprint.png" alt="Blueprint" loading="Lazy">
+							<p >Lắp đặt hệ thống điện, cấp thoát nước, sưởi và điều hòa không khí</p>
+						</div>
+					</div>
+				</div>
+				<div class="row section_4-row1">
+					<div class="col-12 col-md-3" >
+					 	<div class="other-service-item">
+					 		<img src="images/conversation.png" alt="Conversation" loading="Lazy">
+							<p >Hoạt động thiết kế chuyên dụng và tư vấn kỹ thuật liên quan</p>
+					 	</div>
+					</div>
+					<div class="col-12 col-md-3 ">
+						<div class="other-service-item">
+							<img src="images/agreement.png" alt="Agreement" loading="Lazy">
+							<p >Tư vấn môi giới, đấu giá bất động sản, đấu giá quyền sử dụng đất</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3">
+						<div class="other-service-item">
+							<img src="images/location-pin.png" loading="Lazy" alt="Location">
+							<p >Dịch vụ chăm sóc và duy trì cảnh quan</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-3 ">
+						<div class="other-service-item">
+							<img src="images/demolition.png" alt="Demolition" loading="Lazy">
+							<p >Bán buôn máy móc, thiết bị, phụ tùng máy</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Block 5 -->
+		<div class="section_5">
+			<!-- Your HTML code -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="advertise">
+							<img src="images/Consultant.png" width="120px" alt="Consultant" loading="Lazy">
+							<h1 id="title-adv"> Bạn đang cần tư vấn?<h1>
+							<p id="content-adv">Đừng ngần ngại, hãy liên hệ ngay với LaniDani để được tư vấn hoàn toàn miễn phí và báo giá tốt nhất giành riêng cho bạn.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6">
+						<div class="form">
+							<form >
+								<input type="text" name="name" placeholder="Tên của bạn">
+								<br>
+								<input type="text" name="email" placeholder="Email của bạn" >
+								<br>
+								<input type="text" name="phonenumber" placeholder="Số điện thoại" >
+								<br>
+								<textarea rows="10" cols="70" placeholder="Nội dung"></textarea>
+								<br>
+								<input type="submit" name="send" value="GỬI">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Block 6 -->
+		<div class="section_6">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 intro-service">
+						<h2 class="service-slogan">Cập nhật hàng ngày</h2>
+						<h1 id="service-title">TIN TỨC - HOẠT ĐỘNG</h1>
+						<hr>
+					</div>
+				</div>
+				<div class="row news">
+					<div class="col-12 col-md-4 news_1">
+						<img src="images/news-1.jpg" alt="News 1" loading="Lazy">
+						<br>
+						<a href="#"><span class="type_news">GIẢI ĐẤU GOLF</span></a>
+						<p class="news-title">Những lưu ý quan trọng trong cách chọn giày golf cho nam</p>
+						<p class="time">Tháng Mười 28, 2020</p>
+						<hr>
+						<p class="news-detail">Theo chân các golfer nam ra sân đó chính là đôi giày. Làm thế nào để có đôi giày mang êm chân trong suốt 4-5 giờ và tạo ra sự [...]</p>
+						<button type="button" class="btn btn-outline-success">Chi tiết</button>
+					</div>
+					<div class="col-12 col-md-4 news_2">
+						<img src="images/news-2.jpg" alt="News 2" loading="Lazy">
+						<br>
+						<a href="#"><span class="type_news">KỸ THUẬT GOLF</span></a>
+						<p class="news-title">Cách chọn kính chơi golf để bảo vệ mắt tốt nhất</p>
+						<p class="time">Tháng Mười 28, 2020</p>
+						<hr>
+						<p class="news-detail">Bên cạnh những chiếc mũ golf, kinh chơi golf là phụ kiện không thể thiếu cho các golfer trong những ngày nắng nóng, nhiệt lượng cao [...]</p>
+						<button type="button" class="btn btn-outline-success">Chi tiết</button>
+					</div>
+					<div class="col-12 col-md-4 news_3 container">
+						<div class="row">
+							<div class="col-12 col-md-5">
+								<img src="images/news-3.jpg" alt="News 3" loading="Lazy">
+							</div>
+							<div class="col-12 col-md-7" id="subNews_1">
+								<a href="#"><span class="type_news">TƯ VẤN GOLF</span></a>
+								<p class="news-title">Golf Course là gì? Có bao nhiêu loại Golf Course?</p>
+								<hr>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-5">
+								<img src="images/news-4.jpg" alt="News 4" loading="Lazy">
+							</div>
+							<div class="col-12 col-md-7" id="subNews_2">
+								<a href="#"><span class="type_news">GIẢI ĐẤU GOLF</span></a>
+								<p class="news-title">Cách cấm tee golf đơn giản giúp golfer đánh bóng hiệu quả nhất</p>
+								<hr>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-5">
+								<img src="images/news-5.jpg" alt="News 5" loading="Lazy">
+							</div>
+							<div class="col-12 col-md-7" id="subNews_3">
+								<a href="#"><span class="type_news">KỸ THUẬT GOLF</span></a>
+								<p class="news-title">Điểm Hole in One trong golf có nghĩa là gì</p>
+								<hr>
+							</div>
+						</div>			
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<!-- Block 7 -->
+				<div class="col-12 col-md-4 section_7">
+					<img src="images/logo.png" width="300px">
+					<p> Lani & Dani là công ty hoạt động đa ngành, đa lĩnh vực, với chủ lực là thiết kế đầu tư sân golf, quy hoạch cụm dân cư, khu đô thị, khu đô thị mới hoàn chỉnh.</p>
+				</div>
+
+				<!-- Block 8 -->
+				<div class="col-12 col-md-4 section_8">
+					<div class="content-contact">
+						<p class="contact">LIÊN HỆ</p>
+						<hr>
+						<p>
+							<b>Địa chỉ</b>
+							<br>
+							202, Nguyễn Văn Hưởng, P.Thảo Điền, TP. Thủ Đức, TP. HCM
+						</p>
+						<p>
+							<b>Điện thoại</b>
+							<br>
+							0989 368 880
+						</p>
+						<p>
+							<b>Email</b>
+							<br>
+							info@lanidani.com
+						</p>
+					</div>
+				</div>
+
+				<!-- Block 9 -->
+				<div class="col-12 col-md-4 section_9">
+					<p class="footer-news">TIN TỨC</p>
+					<hr>
+					<a href="#"><span class="arrow">&#8827</span> Kỹ thuật Golf</a><br>
+					<hr id="news-under">
+					<a href="#"><span class="arrow">&#8827</span> Giải đấu Golf</a><br>
+					<hr id="news-under">
+					<a href="#"><span class="arrow">&#8827</span> Tư vấn Golf</a><br>
+					<hr id="news-under">
+				</div>
+			</div>
+			<div class="row sec-10">
+				<!-- Block 10 -->
+				<div class="col-12 col-md-4 section_10">
+					<!-- Your HTML code -->
+					<p>Copyright 2021 @ LANI & DANI Company</p>
+				</div>
+				<div class="col-12 col-md-4 social-network">
+					<p>
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+						<i class="fa fa-instagram" aria-hidden="true"></i>
+						<i class="fa fa-twitter" aria-hidden="true"></i>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+
+
+
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script>
+		let mybutton = document.getElementById("myBtn");
+		let navbar = document.querySelector('.container-nav');
+		window.onscroll = () => {
+		    if (window.scrollY > 0) {
+		        navbar.classList.add('nav-active');
+
+		        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				    mybutton.style.display = "block";
+				  } else {
+				    mybutton.style.display = "none";
+				  }
+		    } else {
+		        navbar.classList.remove('nav-active');
+		    }
+		};
+		function myFunction() {
+			var x = document.getElementById("myLinks");
+			if (x.style.display === "block") {
+				x.style.display = "none";
+			} else {
+				x.style.display = "block";
+			}
+		}
+
+		function topFunction() {
+		  document.body.scrollTop = 0;
+		  document.documentElement.scrollTop = 0;
+		}
+	</script>
+</body>
+</html>
