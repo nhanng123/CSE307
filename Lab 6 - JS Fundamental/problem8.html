@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>problem 8</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		p{
+			font-size: 14px;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+		}
+		#cal{
+			margin-top: 30px;
+		}
+		#note{
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input type="text" name="numberInput" id="inputNumber" required>
+		<button type="submit" id="send">Send</button>
+		<button type="clear" id="clear">Clear</button>
+		<div id="note">
+			<span>Please Input the 32 bit positive integer number.</span>
+		</div>
+		<p id="array"></p>
+		<button type="button" id="cal">Calculator</button>
+		<div>
+			<ul id="result" type="square">
+			</ul>
+		</div>
+	</main>
+</body>
+<script type="text/javascript">
+	var arrNum = new Array();
+	var currentArr ="Array: ";
+	$('#send').click(function doFunction(){
+		var number = $('#inputNumber').val();
+
+		if (number < Math.pow(10,8) && number > 0) {
+			arrNum.push(number);
+			currentArr += ` ${number}`;
+			document.getElementById('array').innerHTML = currentArr;
+			document.getElementById('note').style.visibility ="hidden";
+		}else{
+			document.getElementById('note').style.visibility ="visible";
+			document.getElementById('result').innerHTML = "";
+		}
+	});
+	$('#cal').click(function Calculator(){
+		let min = 99999999999;
+		let max = 0;
+		let avg;
+		let sum = 0;
+		for(var i = 0; i < arrNum.length ; i++){
+			min = Math.min(arrNum[i], min);
+			max = Math.max(arrNum[i],max);
+			sum += Number(arrNum[i]);
+		}
+		avg = sum / arrNum.length;
+		min = min.toFixed(2);
+		max = max.toFixed(2);
+		sum = sum.toFixed(2);
+		avg = avg.toFixed(2);
+		doPrint(min, max, sum, avg);
+	});
+	function doPrint(a, b, c, d){
+		let _str = "";
+		_str += `<li>Min = ${a}</li>
+				 <li>Max = ${b}</li>
+				 <li>Sum = ${c}</li>
+				 <li>Avg = ${d}</li>`;
+		console.log(`Min = ${a} Max = ${b} Sum = ${c} Avg = ${d}`);
+		document.getElementById('result').innerHTML = _str;
+		document.getElementById('note').innerHTML ="";
+	}
+	$('#clear').click(function(){
+		arrNum = new Array();
+		currentArr  ="Array: ";
+		document.getElementById('inputNumber').value ='';
+		document.getElementById('array').innerHTML = "";
+		document.getElementById('note').style.visibility ="hidden";
+		document.getElementById('result').innerHTML = "";
+	});
+</script>
+</html>

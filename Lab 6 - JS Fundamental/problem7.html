@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>problem 7</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		main{
+			text-align: center;
+			align-items: center;
+		}
+		p{
+			text-align: left;
+			font-size: 14px;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input type="text" name="numberInput" id="inputNumber" required>
+		<button type="submit">Send</button>
+		<div id="note">
+			
+		</div>
+		<div>
+			<p id="result"></p>
+		</div>
+	</main>
+</body>
+<script type="text/javascript">
+	$('button').click(function doFunction(){
+		var number = $('#inputNumber').val();
+		if (number < Math.pow(2,32) && number > 0) {
+			doPrint(number);
+		}else{
+			document.getElementById('note').innerHTML = `<span>please Input the 32 bit positive integer number.</span>`;
+			document.getElementById('result').innerHTML = "";
+		}
+	});
+	function doPrint(number){
+		let _str = 1;
+		for(var i = 2; i <= number ; i++){
+			_str += ` ${i}`;
+		}
+		console.log(_str);
+		document.getElementById('result').innerHTML = _str;
+		document.getElementById('note').innerHTML ="";
+	}
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>problem 6</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		main{
+			text-align: center;
+			align-items: center;
+		}
+		p{
+			font-size: 54px;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input type="text" name="numberInput" id="inputNumber" required>
+		<button type="submit">Send</button>
+		<div id="note">
+			
+		</div>
+		<div>
+			<p id="result"></p>
+		</div>
+	</main>
+</body>
+<script type="text/javascript">
+	$('button').click(function doFunction(){
+		var number = $('#inputNumber').val();
+		var result = isPrime(number);
+
+		if (result == -1){
+			document.getElementById('note').innerHTML = `<span>please Input the number bigger than 1.</span>`;
+			document.getElementById('result').innerHTML = "";
+		}
+		if (result == true || result == false){
+			console.log(result);
+			printResult(result, number);
+		}
+	});
+	function printResult(checkCondi, number){
+		document.getElementById('note').innerHTML = "";
+		if(checkCondi){
+			document.getElementById('result').innerHTML = `The number ${number} is a PRIME number`;
+		}else {
+			document.getElementById('result').innerHTML = `The number ${number} is not a PRIME number`;
+		}
+	}
+	function isPrime(number){
+		if(number == 1){
+			return -1;
+		}
+		if(number > 0){
+			for(let i = 2; i <= Math.sqrt(number); i++){
+				if (number % i === 0){
+					return false;
+				}
+			}
+			return true;
+		}else{
+			let _str = `<span>please Input the positive number!</span>`;
+			document.getElementById('result').innerHTML = "";
+			document.getElementById('note').innerHTML = _str;
+		}
+	}
+</script>
+</html>

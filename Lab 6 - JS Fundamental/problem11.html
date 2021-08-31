@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>problem 11</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		p{
+			font-size: 14px;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+		}
+		#cal{
+			margin-top: 30px;
+		}
+		#note{
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input type="text" name="numberInput" id="inputNumber" required>
+		<button type="submit" id="send">Add</button>
+		<button type="clear" id="clear">Clear</button>
+		<div id="note">
+			<span>please Input the 32 bit positive integer number.</span>
+		</div>
+		<p id="number"></p>
+		<div id="result">
+		</div>
+	</main>
+</body>
+<script type="text/javascript">
+	var arrNum = new Array();
+	var currentArr ="Number: ";
+
+	$('#send').click(function doFunction(){
+		var num = $('#inputNumber').val();
+
+		if (num < Math.pow(10,8) && num > 0) {
+			let arr = divicedNumber(num);
+
+			currentArr += `${num}`;
+			document.getElementById('number').innerHTML = currentArr;
+			document.getElementById('note').style.visibility ="hidden";
+		}else{
+			document.getElementById('note').style.visibility ="visible";
+			document.getElementById('result').innerHTML = "";
+		}
+	});
+	$('#clear').click(function(){
+		arrNum = new Array();
+		currentArr ="Number: ";
+		document.getElementById('inputNumber').value ='';
+		document.getElementById('array').innerHTML = "";
+		document.getElementById('note').style.visibility ="hidden";
+		document.getElementById('result').innerHTML = "";
+	});
+	function divicedNumber(number){
+		let _str = 'The reverse number: ';
+		while (number > 0) {
+			let a = number % 10;
+			arrNum.unshift(a);
+			number = Math.floor(number/10);
+		}
+		arrNum.reverse();
+		for (var i of arrNum) {
+			_str += `${i}`;
+		}
+		document.getElementById('result').innerHTML = _str;
+	}
+</script>
+</html>

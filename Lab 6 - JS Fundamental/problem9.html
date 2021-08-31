@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>problem 9</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		p{
+			font-size: 14px;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+		}
+		#cal{
+			margin-top: 30px;
+		}
+		#note{
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input type="text" name="numberInput" id="inputNumber" required>
+		<button type="submit" id="send">Send</button>
+		<button type="clear" id="clear">Clear</button>
+		<div id="note">
+			<span>Please Input the 32 bit positive integer number.</span>
+		</div>
+		<p id="array"></p>
+		<button type="button" id="sort">Sort</button>
+		<div id="result">
+		</div>
+	</main>
+</body>
+<script type="text/javascript">
+	var arrNum = [7,3,45,5,4,8,98]
+	var currentArr ="Array: ";
+	$('#send').click(function doFunction(){
+		var number = $('#inputNumber').val();
+
+		if (number < Math.pow(10,8) && number > 0) {
+			arrNum.push(number);
+			currentArr += ` ${number}`;
+			document.getElementById('array').innerHTML = currentArr;
+			document.getElementById('note').style.visibility ="hidden";
+		}else{
+			document.getElementById('note').style.visibility ="visible";
+			document.getElementById('result').innerHTML = "";
+		}
+	});
+
+	$('#sort').click(function Calculator(){
+		function selectionSort() {
+			for (var i = 0; i < arrNum.length; i++) {
+				var _numberTemp = arrNum[i];
+				
+				for (var j = i + 1; j < arrNum.length; j++) {
+					if (arrNum[j] < _numberTemp) {
+						_numberTemp = arrNum[j];
+					}
+				}
+				var _value = arrNum[i];
+				var _index = arrNum.indexOf(_numberTemp);
+
+				arrNum[i] = _numberTemp;
+				arrNum[_index] = _value;
+			}
+		}
+		selectionSort();
+		var _str = 'The result is:';
+		for(let p of arrNum){
+			_str += ` ${p}`;
+		}
+		document.getElementById('result').innerHTML = _str;
+	});
+	$('#clear').click(function(){
+		arrNum = new Array();
+		currentArr ="Array: ";
+		document.getElementById('inputNumber').value ='';
+		document.getElementById('array').innerHTML = "";
+		document.getElementById('note').style.visibility ="hidden";
+		document.getElementById('result').innerHTML = "";
+	});
+</script>
+</html>

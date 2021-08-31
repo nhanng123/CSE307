@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Problem 5</title>
+
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style type="text/css">
+		main{
+				font-family: sans-serif;
+			}
+			.heading-title{
+				display: inline-block;
+				color: #61605C;
+				margin-bottom: 0;
+				border-bottom: 5px solid #FC8D00;
+			}
+			.product-title hr{
+				margin-top: 1px;
+			}
+			.product{
+				display: inline-block;
+				align-items: center;
+				text-align: center;
+			}
+			.product-frame{
+				border: 2px solid #F1EDEA;
+				position: relative;
+				cursor: pointer;
+				
+			}
+			.product-image img{
+				width: 100%;
+				max-width: 100%;
+			}
+			.booking-hover{
+				display: none;
+				border: 2px solid orange;
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				right: 2px;
+				bottom: 2px;
+
+			}
+			.booking-hover a{
+				display: block;
+				background-color: #FC8D00;
+				padding: 7px 20px;
+				text-transform: uppercase;
+				font-weight: bold;
+				text-decoration: none;
+				color: #fff;
+				margin-bottom: 15px;
+				margin-left: 10px;
+				margin-right: 10px;
+				
+			}
+			.booking-hover a:first-child{
+				margin-top: calc(50% - 50px);
+			}
+			.booking-hover a:last-child{
+				margin-bottom: calc(50% - 50px);
+			}
+			.product:hover .booking-hover{
+				display: block;
+			}
+			.product:hover img{
+				filter: blur(2px);
+			}
+			.description .detail{
+				color: #718086;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
+			.description .contact{
+				color: #DA682E;
+				font-weight: bold;
+			}
+	</style>
+</head>
+<body>
+	<main>
+		<div class="container-fluid">
+			<div class="product-title">
+				<h3 class="heading-title">TỔNG ĐÀI IP</h3>
+				<hr>
+			</div>
+			<div class="row " id="productList">
+				
+			</div>
+		</div>
+	</main>
+
+	<script type="text/javascript">
+		var listProduct = [
+				{id:'1',name:'Pen',quantity:'10',price:'2.0',image:"https://www.montblanc.com/variants/images/34480784411791124/A/w570.jpg"},
+				{id:'2',name:'Pencil',quantity:'12',price:'1.0',image:"https://www.montblanc.com/variants/images/34480784411791124/A/w570.jpg"}
+		];
+		
+		listProduct.unshift(
+				{id:'3',name:'Books',quantity:'10',price:'3.0',image:"https://www.montblanc.com/variants/images/34480784411791124/A/w570.jpg"}
+			);
+		listProduct.push(
+			{id:'4',name:'Ruler',quantity:'11',price:'1.0',image:"https://www.montblanc.com/variants/images/34480784411791124/A/w570.jpg"}
+
+			);
+		listProduct.push(
+			{id:'4',name:'A4 Paper',quantity:'11',price:'1.0',image:"https://www.montblanc.com/variants/images/34480784411791124/A/w570.jpg"}
+
+			);
+
+		function print(arr){
+			let _s = "";
+			for(let p of arr){
+				_s+=`
+					<div class="product col-md-2">
+						<div class="product-frame">
+							<div class="product-image">
+								<a href="#"><img src="${p.image}"></a>
+							</div>
+							<div class="booking-hover">
+								<a href="#">ĐẶT HÀNG</a>
+								<a href="#">CHI TIẾT</a>
+							</div>
+						</div>
+						<div class="description">
+							<p class="detail">${p.name}</p>
+							<p class="contact">${p.price}</p>
+						</div>
+					</div>
+				`;
+			}
+			let productNode = document.getElementById('productList');
+			productNode.innerHTML=_s;
+		}
+
+		// print(listProduct);
+
+		function searchByName(_string, arr){
+			let _s = "";
+			for(let p of arr){
+				if(p.name.indexOf(_string) > -1) {
+					_s+=`
+						<div class="product col-md-2">
+							<div class="product-frame">
+								<div class="product-image">
+									<a href="#"><img src="${p.image}"></a>
+								</div>
+								<div class="booking-hover">
+									<a href="#">ĐẶT HÀNG</a>
+									<a href="#">CHI TIẾT</a>
+								</div>
+							</div>
+							<div class="description">
+								<p class="detail">${p.name}</p>
+								<p class="contact">${p.price}</p>
+							</div>
+						</div>
+					`;
+				}
+			}
+			let productNode = document.getElementById('productList');
+			productNode.innerHTML=_s;
+		}
+		// searchByName("Books", listProduct);
+
+		function delByID(_ID, arr){
+			for(let i in arr){
+				if(arr[i].id == _ID){
+					arr.splice(i,1);
+					break;
+				}
+			}
+		}
+
+		delByID(2,listProduct);
+		// print(listProduct);
+
+		function compare(a, b){
+			if (a.name < b.name) {
+				return -1;
+			}
+			if (a.name > b.name) {
+				return 1;
+			}
+			return 0;
+		}
+
+		listProduct.sort(compare);
+		print(listProduct);
+
+	</script>
+</body>
+</html>

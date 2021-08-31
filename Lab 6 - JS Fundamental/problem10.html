@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>problem 10</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		p{
+			font-size: 14px;
+		}
+		span{
+			color: red;
+			font-size: 18px;
+		}
+		#cal{
+			margin-top: 30px;
+		}
+		#note{
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input type="text" name="numberInput" id="inputNumber" required>
+		<button type="submit" id="send">Add</button>
+		<button type="clear" id="clear">Clear</button>
+		<div id="note">
+			<span>please Input the 32 bit positive integer number.</span>
+		</div>
+		<p id="array"></p>
+		<button type="button" id="cal">Check</button>
+		<div id="result">
+		</div>
+	</main>
+</body>
+<script type="text/javascript">
+	var arrNum = {};
+	var currentArr ="Array: ";
+
+	$('#send').click(function doFunction(){
+		var num = $('#inputNumber').val();
+
+		if (num < Math.pow(10,8) && num > 0) {
+			if (num in arrNum)
+			{
+			    arrNum[num].times += 1;
+			}else{
+				arrNum[num] = {times: 1};
+			}
+			currentArr += ` ${num}`;
+			document.getElementById('array').innerHTML = currentArr;
+			document.getElementById('note').style.visibility ="hidden";
+		}else{
+			document.getElementById('note').style.visibility ="visible";
+			document.getElementById('result').innerHTML = "";
+		}
+	});
+	$('#clear').click(function(){
+		arrNum = {};
+		currentArr ="Array: ";
+		document.getElementById('inputNumber').value ='';
+		document.getElementById('array').innerHTML = "";
+		document.getElementById('note').style.visibility ="hidden";
+		document.getElementById('result').innerHTML = "";
+	});
+	$('#cal').click(function Calculator(){
+		let _str;
+		var temp = arrNum[1];
+		for (let p in arrNum)
+		{
+		    if (arrNum[p].times > temp.times){
+		    	_str =`REPEATING_NUMBER: ${p} <br/>
+		    		   REPEATED TIMES: ${arrNum[p].times}`;
+		    }
+		}
+		console.log(_str);
+		document.getElementById('result').innerHTML = _str;
+	});
+</script>
+</html>
