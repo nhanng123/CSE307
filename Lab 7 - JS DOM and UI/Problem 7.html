@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <title>Problem 7</title>
+    <style>
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .closebtn {
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Alert Messages</h2>
+
+    <p>Click on the "x" symbol to close the alert message.</p>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    </div>
+
+</body>
+</html>

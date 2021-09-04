@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Problem 5</title>
+
+	<style type="text/css">
+	body{
+		padding: 100px;
+	}
+		.column {
+		  float: left;
+		  width: 25%;
+		  padding: 10px;
+		  box-sizing: border-box;
+		}
+
+		.column img {
+		  opacity: 0.8;
+		  cursor: pointer;
+		  max-width: 100%;
+		  width: 100%;
+		}
+
+		.column img:hover {
+		  opacity: 1;
+		}
+
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		.container {
+		  position: relative;
+		  display: none;
+		}
+
+		#expandedImg{
+			width: 100%;
+		}
+		#imgtext {
+		  position: absolute;
+		  bottom: 15px;
+		  left: 15px;
+		  color: blue;
+		  font-size: 20px;
+		}
+
+		
+		.closebtn {
+		  position: absolute;
+		  top: 10px;
+		  right: 15px;
+		  color: #000;
+		  font-size: 35px;
+		  cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div class="column">
+			<img src="service-lawn-care.jpg" alt="Lawn Care" onclick="myFunction(this);">
+		</div>
+		<div class="column">
+			<img src="service-maintenance.jpg" alt="Maintaince" onclick="myFunction(this);">
+		</div>
+			<div class="column">
+		<img src="service-operation.jpg" alt="Operation" onclick="myFunction(this);">
+			</div>
+		<div class="column">
+			<img src="service-training.jpg" alt="Training" onclick="myFunction(this);">
+		</div>
+	</div>
+
+	<div class="container">
+	
+		<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+		<img id="expandedImg">
+
+		<div id="imgtext"></div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		function myFunction(imgs) {
+			
+			var expandImg = document.getElementById("expandedImg");
+			
+			var imgText = document.getElementById("imgtext");
+			
+			expandImg.src = imgs.src;
+			
+			imgText.innerHTML = imgs.alt;
+			
+			expandImg.parentElement.style.display = "block";
+			}
+	</script>
+</body>
+</html>

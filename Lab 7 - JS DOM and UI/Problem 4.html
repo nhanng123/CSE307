@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Problem 4</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		.toDo-List{
+			width: 300px;
+			margin-top: 50px;
+			margin-left: auto;
+			margin-right: auto;
+			box-shadow: 0 0 2px 2px #ddd;
+		}
+		.content{
+			background-color: #6199EE;
+			padding: 5px;
+			color: white;
+			text-align: center;
+			font-weight: bold;
+		}
+		.send{
+			display: inline-block;
+		}
+		#content-toDo{
+			background-color: #fff;
+			margin: 0;
+			padding: 0;
+		}
+		#content-toDo li{
+			position: relative;
+			padding: 12px 8px 12px 40px;
+		}
+		.button-close{
+			right: 15px;
+			position: absolute;
+			color: lightgrey;
+			font-weight: bold;
+			font-size:  28px;
+			line-height: 20px;
+			cursor: pointer;
+		}
+		.checked{
+			background-color: gray !important;
+			color: white;
+			text-decoration: line-through;
+		}
+		#content-toDo li.checked:before{
+			content: '';
+			position: absolute;
+			border-color: #fff;
+			border-style: solid;
+			border-width: 0 2px 2px 0;
+			top: 10px;
+			left: 16px;
+			transform: rotate(45deg);
+			height: 15px;
+			width: 7px;
+		}
+		#content-toDo li:nth-child(even){
+			background-color:  #f9f9f9;
+		}
+	</style>
+</head>
+<body>
+	<div class="toDo-List">
+		<div class="content">
+			<h2>My To Do List</h2>
+			<div class="send">
+				<input type="text" name="text" placeholder="Title..." id="inputValue">
+				<button type="submit" onclick="addElement()">Add</button>
+			</div>
+		</div>
+		<ul id="content-toDo" type="none">
+			<li>Hit the gym<span class="button-close">&times;</span></li>
+			<li class="checked">Pay bill <span class="button-close">&times;</span></li>
+		</ul>
+	</div>
+
+
+
+	<script type="text/javascript">
+		let list = document.querySelector('#content-toDo');
+		list.addEventListener('click',function(e){
+			console.log(e.target);
+			if(e.target.tagName === 'LI'){
+				e.target.classList.toggle('checked');
+			}else if(e.target.tagName === 'SPAN'){
+				e.target.parentElement.style.display = 'none';
+				console.log(e.target.parentElement);
+			}
+		}, false);
+		
+		function addElement(){
+			let inputValue = document.getElementById('inputValue');
+			if(inputValue.value == ''){
+				alert("Write something!")
+			}else{
+				let li = document.createElement('li');
+				li.innerHTML = `${inputValue.value} <span class="button-close">&times;</span>`;
+				console.log(li);
+				document.getElementById('content-toDo').style.display= 'block';
+				document.getElementById('content-toDo').appendChild(li);
+				inputValue.value = "";
+			}
+		}
+	</script>
+</body>
+</html>
