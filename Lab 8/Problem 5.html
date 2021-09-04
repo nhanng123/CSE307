@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Font Awesome -->
+       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+        <title>Problem 5</title>
+
+        <style type="text/css">
+        	.menu{
+        		padding: 0;
+        		background-color: #000;
+        	}
+			.menu > li {
+				display:inline-block;
+				list-style: none;
+			}
+			.menu > li > a{
+				display:inline-block;
+				font-size:15px;
+				font-weight: bold;
+				color: #fff;
+				height: 50px;
+				line-height: 50px;
+				padding-left:30px;
+				padding-right:30px;
+				text-decoration: none;
+			}
+			.menu .active a,
+			.menu li:hover a:not(.icon){
+				background-color: #46A04F;
+				font-weight: bold;
+				text-decoration: none;
+			}
+
+			.menu a.icon{
+				display: none;
+			}
+
+			@media only screen and (max-width: 520px){
+				
+				.menu{
+					position: relative;
+				}
+				.menu li{
+					display: block;
+				}
+				.menu li:not(.active) a {
+					display: none;
+				}
+				
+				.menu a.icon {
+					position: absolute;
+					top: 0;
+					right: 0;
+					display: block !important;
+					background-color: #ddd;
+					color: #000;
+				}
+				.mobile-menu li a{
+					display: block !important;
+				}
+			}
+
+			
+
+        </style>
+</head>
+<body>
+	<ul class="menu" id="menubar">
+		<li  class="active"><a href="#">Home</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="javascript:void(0);" class="icon" onclick="showMenu()"><i class="fa fa-bars"></i></a></li>
+	</ul>
+
+
+
+	<script type="text/javascript">
+
+		function showMenu() {
+			var p = document.querySelector('#menubar');
+			if (p.className === 'menu') {
+				p.className += ' mobile-menu';
+			} else {
+				p.className = 'menu';
+			}
+			console.log(p);
+		}
+
+	</script>
+</body>
+</html>

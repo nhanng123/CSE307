@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset = "utf-8">
+   <title>Problem 4</title>
+
+   
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+</head>
+<body>
+   <div id = "dialog"
+      title = "Message">There are something
+   </div>
+   <button id = "open">Click here</button>
+
+   <script>
+      $(function() {
+         $( "#dialog" ).dialog({
+            autoOpen: false,
+         });
+         $( "#open" ).click(function() {
+            $( "#dialog" ).dialog( "open" );
+         });
+      });
+   </script>
+</body>
+</html>

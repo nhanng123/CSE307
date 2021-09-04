@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+	<title>Problem 8</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- Boostrap -->
+
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Font Awesome -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<style type="text/css">
+		main, .left-side, .input-infor{
+			border: 1px solid black;
+			padding: 10px;
+		}
+		.left-side li{
+			cursor: pointer;
+		}
+		.input-infor{
+			margin-bottom: 30px;
+		}
+		.GroupElements .button{
+			position: relative;
+		}
+		#submit, #update{
+			position: absolute;
+		}
+		#update{
+			display: none;
+		}
+		.header-list{
+			padding: 15px;
+		}
+		.search{
+			float: right;
+			width:50%;
+			margin-top: -5px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div class="container">
+			<header>
+				<h1>Student Management System</h1>
+			</header>
+			<div class="row">
+				<div class="col-3">
+					<aside class="left-side">
+						<h2>Class List</h2>
+						<ul class="list-department">
+						</ul>
+					</aside>
+				</div>
+				<div class="col-9">
+					<main>
+						<div class="input-infor">
+							<div class="card-header">
+								Add a new student
+							</div>
+							<hr>
+							<div class="GroupElements">
+								<div class="row">
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="id" placeholder="Enter Student ID" required>
+									</div>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="FirstName" placeholder="Enter First Name" required>
+									</div>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" required>
+									</div>
+									<div class="col-sm-2">
+										<select class="form-control" id="Dept" name="Dept">
+										</select>
+									</div>
+									<div class="col-sm-2 button">
+										<input type="hidden" id="Type" value="New">
+										<button type="button" class="btn btn-primary" id="submit">Add</button>
+										<button type="button" class="btn btn-primary" id="update">Update</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="group-Title">
+							<div class="card-header header-list">
+								Staff List
+
+								<div class="input-group mb-3 search">
+									<input type="text" class="form-control" id="search" placeholder="Search....." >
+									<div class="input-group-append">
+										<button class="btn btn-outline-secondary search-btn" type="button" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-1 Title">#</div>
+								<div class="col-sm-4 Title">Full Name</div>
+								<div class="col-sm-4 Title">Department</div>
+								<div class="col-sm-3 Title">Function</div>
+							</div>
+						</div>
+
+						<div class="group-List">
+
+						</div>
+					</main>
+				</div>
+			</div>
+		</div>
+	</main>
+    <script>
+    	$(document).ready(function(){
+    		let staffs, depts;
+    		$.get(
+    			'http://45.76.156.126/getdata.php',
+    			{Type: 'Staff'},
+    			function(data){
+    				staffs = data;
+    				staffs.sort(compare);
+    				ShowStudent(staffs);
+    				console.log(staffs);
+    			},
+    			'Json'
+    		);
+    		$.get(
+    			'http://45.76.156.126/getdata.php',
+    			{Type: 'Department'},
+    			function(data){
+    				depts = data;
+    				ShowDepts(depts);
+    				console.log(depts);
+    			},
+    			'Json'
+    		);
+
+    		//print in page
+    		function ShowStudent(_studentList){
+    			let _str ='', i = 0;
+    			for(let _p of _studentList){
+    				_str += `
+    					<div class="row">
+							<div class="col-sm-1">${++i}</div>
+							<div class="col-sm-4">${_p.FistName + " " +_p.LastName }</div>
+							<div class="col-sm-4">${_p.Department}</div>
+							<div class="col-sm-3">
+								<button type="button" class="btn Edit"data-id='${_p.ID}'>Edit</button>
+								<button type="button" class="btn Del" data-id='${_p.ID}'>Delete</button>
+							</div>
+						</div>`
+    			}
+    			$('.group-List').html('');
+    			$('.group-List').append(_str);
+    		}
+
+    		function ShowDepts(_deptsList){
+    			let _str ='', _option = '';
+    			for(let p of _deptsList){
+    				_str +=`<li> ${ p } </li>`;
+    				_option +=`<option value=" ${p}">${p}</option>`
+    			}
+    			$('.list-department').append(_str);
+    			$('#Dept').append(_option);
+    		}
+
+    		// Sorting By Name
+    		function compare(a , b){
+    			if(a.LastName < b.LastName) return -1;
+    			if(a.FistName > b.FistName) return 1;
+    			return 0;
+    		}
+
+
+    		// Add student
+    		$('#submit').click(function(){
+    			let _id = $('#id').val();
+    			let _firstName = $('#FirstName').val();
+    			let _lastName = $('#LastName').val();
+    			let _Dept = $('#Dept').val();
+
+    			staffs.unshift({
+    				'ID' : id,
+    				'FistName': _firstName,
+    				'LastName': _lastName,
+    				'Email':"",
+    				'Department': _Dept
+    			});
+    			ShowStudent(staffs);
+    		});
+
+    		// Delete student
+    		$('.group-List').on('click', '.Del', function(e) {
+    			let _confirm = confirm('Are you sure?');
+    			if(_confirm){
+	    			let _nodeDel = e.target;
+	    			_nodeDel = $(_nodeDel);
+	    			let _id = _nodeDel.attr('data-id');
+
+	    			for(let p in staffs){
+	    				if(_id == staffs[p].ID){
+	    					staffs.splice(p,1);
+	    					break;
+	    				}
+	    			}
+	    			ShowStudent(staffs);
+    			}
+    		});
+    		// update
+    		$('.group-List').on('click', '.Edit', function(e) {
+    			let _node = e.target;
+    			_node = $(_node);
+    			let _id = _node.attr('data-id');
+    			$("#submit").css('display','none');
+    			$("#update").css('display','block');
+
+    			let _index;
+    			for(let p in staffs){
+    				if(_id == staffs[p].ID){
+    					$('#id').val(staffs[p].ID);
+		    			$('#FirstName').val(staffs[p].FistName);
+		    			$('#LastName').val(staffs[p].LastName);
+		    			$('#Dept').val(` ${staffs[p].Department}`);
+		    			_index = p;
+		    			break;
+    				}
+    			}
+    			$('#update').click(function(){
+    				$("#submit").css('display','block');
+    				$("#update").css('display','none');
+    				staffs.splice(_index,1,{
+	    				'ID' : $('#id').val(),
+	    				'FistName': $('#FirstName').val(),
+	    				'LastName': $('#LastName').val(),
+	    				'Email':"",
+	    				'Department':$('#Dept').val()
+	    			});
+	    			$('#id').val("");
+    				$('#FirstName').val("");
+    				$('#LastName').val("");
+    				$('#Dept').val("");
+	    			ShowStudent(staffs);
+    			});
+    		});
+
+    		// Class list -click to see inside
+    		$('.list-department').on('click', 'li', function(e){
+    			let _node = e.target;
+    			_node = $(_node);
+    			let _deptName = _node.text();
+
+    			let tempList = new Array();
+    			for(let p of staffs){
+    				if(_deptName.match(p.Department)){
+    					tempList.push(p);
+    				}
+    			}
+    			ShowStudent(tempList);
+    		});
+
+    		//Search by Name
+    		$(".search-btn").click(function(){
+
+    			let _node = $("#search").val();
+
+    			if(_node == ""){
+    				alert("Plean input name!!!")
+    			}
+    			else{
+    				let tempList = new Array();
+	    			for(let p of staffs){
+	    				if(p.LastName.indexOf(_node) > -1 ){
+	    					tempList.push(p);
+	    				}
+	    			}
+	    			console.log(tempList);
+	    			ShowStudent(tempList);
+    			}
+    		});
+    	});
+    </script>
+</html>
+</body>
+</html>
